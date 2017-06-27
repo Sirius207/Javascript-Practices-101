@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    html {
+      height: 400px;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .word {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 70%;
+      width: 100%;
+      text-align: center;
+      margin: auto;
+      color: #fff;
+      font-size: 20px;
+      font-family: monospace;
+      text-shadow: 0px 1px orange;
+    }
+
+    .clock-face {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 250px;
+      height: 250px;
+      border: 10px solid orange;
+      border-radius: 50%;
+      box-shadow: 0 0 10px orange, inset 0 0 125px rgba(0, 0, 0, 0.95);
+      background: transparent;
+    }
+
+    .wave {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: '';
+      width: 250px;
+      height: 250px;
+      background-color: transparent;
+      box-shadow: 0 0 30px hsla(39, 100%, 65%, 1);
+      border-left: 10px solid rgba(255, 255, 255, 0.9);
+      border-right: 10px solid rgba(255, 255, 255, 0.9);
+      border-top: 0px solid transparent;
+      border-bottom: 0px solid transparent;
+      border-radius: 50%;
+      animation: rotate 1.5s infinite linear;
+    }
+
+    .face-center {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 5%;
+      height: 5%;
+      background-color: orange;
+      box-shadow: 0 0 1px 2px #fff;
+      border-radius: 50%;
+    }
+
+    .hand {
+      position: absolute;
+      top: 50%;
+      margin: auto;
+      height: 5px;
+      width: 50%;
+      border-radius: 50% 0 0 50%;
+      background-color: #fff;
+      transform-origin: 100%;
+      transition: all 0.05s;
+      transition-timing-: function: ease-in-out;
+    }
+
+    .second-hand {
+      background: linear-gradient(90deg, transparent 5%, white 20%);
+    }
+
+    .min-hand {
+      background: linear-gradient(90deg, transparent 20%, white 30%);
+    }
+
+    .hour-hand {
+      background: linear-gradient(90deg, transparent 40%, white 45%);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg)
+      }
+      to {
+        transform: rotate(180deg)
+      }
+    }
+  </style>
+  <div class="clock-face">
+    <div class="hand second-hand"></div>
+    <div class="hand min-hand"></div>
+    <div class="hand hour-hand"></div>
+    <div class="face-center"></div>
+    <div class="word"></div>
+  </div>
+  <div class="wave"></div>
+  <script>
+    const secondHand = document.querySelector('.second-hand')
+    const minHand = document.querySelector('.min-hand')
+    const hourHand = document.querySelector('.hour-hand')
+    const setDate = () => {
+      const now = new Date()
+      // cal sec degrees
+      const seconds = now.getSeconds()
+      const secondsDegrees = ((seconds / 60) * 360) + 90
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+      // cal min degrees
+      const mins = now.getMinutes()
+      const minsDegrees = ((mins / 60) * 360) + 90
+      minHand.style.transform = `rotate(${minsDegrees}deg)`
+      // cal hr degrees
+      const hour = now.getHours()
+      const hourDegrees = ((hour / 12) * 360) + 90 + mins / 2;
+      hourHand.style.transform = `rotate(${hourDegrees}deg)`
+      // push 0 before mins
+      let minsFormat = (mins >= 10) ? mins : ('0' + mins.toString())
+      // display time word
+      document.querySelector('.word').innerHTML = `${hour}:${minsFormat}`
+    }
+    setInterval(setDate, 1000)
+  </script>
+</body>
+
+</html>
