@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      background: rgba(0, 0, 0, 0.9)
+    }
+
+    .circle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 20px 1px orange;
+      text-align: center;
+    }
+
+    .outerCircle {
+      width: 200px;
+      height: 200px;
+      animation: rotate 10s infinite linear;
+    }
+
+    .innerCircle {
+      width: 400px;
+      height: 400px;
+      animation: rotate 5s infinite linear;
+    }
+
+
+    button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      margin: auto;
+      width: 50px;
+      height: 30px;
+      border-radius: 5px;
+      background: cyan;
+      box-shadow: 0 0 1px gray;
+      cursor: pointer;
+    }
+  </style>
+  <div class="circle outerCircle"></div>
+  <div class="circle innerCircle"></div>
+  <canvas id="draw" width="100px" height="100px"></canvas>
+  <button id="clear">Clear</button>
+
+  <script>
+    const clear = document.querySelector('#clear')
+    clear.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    })
+
+    const canvas = document.querySelector('#draw')
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    ctx.strokeStyle = 'black'
+    ctx.lineJoin = 'round'
+    ctx.lineCap = 'round'
+    ctx.lineWidth = 1
+
+
+    let innerRadius = 100
+    let innerDirection = true
+    let outerRadius = 200
+    let innerDegree = 0
+    let outerDegree = 0
+    let hue = 0
+    let offset = 13
+
+    function draw() {
+      let innerX = window.innerWidth / 2 + innerRadius * Math.cos((innerDegree / 360) * Math.PI)
+      let innerY = window.innerHeight / 2 + innerRadius * Math.sin((innerDegree / 360) * Math.PI)
+      let outerX = window.innerWidth / 2 + outerRadius * Math.cos((outerDegree / 360) * Math.PI)
+      let outerY = window.innerHeight / 2 + outerRadius * Math.sin((outerDegree / 360) * Math.PI)
+
+      ctx.beginPath()
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+      ctx.moveTo(innerX, innerY)
+      ctx.lineTo(outerX, outerY)
+      ctx.stroke()
+      innerDegree += 12 + offset;
+      outerDegree += 24 + offset;
+      hue += 2
+      offset++
+      if (hue >= 360) {
+        hue = 0
+        offset = 0
+      }
+      if (innerRadius < 50 || innerRadius > 100) {
+        innerDirection = !innerDirection
+      }
+      if (innerDirection) {
+        innerRadius--
+      } else {
+        innerRadius++
+      }
+    }
+
+    setInterval(draw, 50);
+    setInterval(function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }, 35000);
+  </script>
+</body>
+
+</html>
