@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="oldName.png" download="newName.png">Download a image and change filename</a>
+  <a href="https://s3-ap-southeast-1.amazonaws.com/oldName.jpg" download="newName.jpg">Download a file from remote url</a>
+  <button type="" onClick="save()">Download a cors image and change its file name</button>
+  <script>
+    function save() {
+      const MY_URL = 'https://s3-ap-southeast-1.amazonaws.com/oldName.jpg'
+      const request = new XMLHttpRequest();
+      request.open('GET', MY_URL, true);
+      request.responseType = 'blob';
+      request.onload = function () {
+        var reader = new FileReader();
+        reader.readAsDataURL(request.response);
+        reader.onload = function (e) {
+          const file = request.response;
+          const fileName = e.name
+          // create a download link and trigger and delete
+          const a = document.createElement('a');
+          a.href = window.URL.createObjectURL(file); // xhr.response is a blob
+          a.download = MY_URL.substring(MY_URL.lastIndexOf("/") + 1).split("?")[0];; // Set the file name.
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          delete a;
+        };
+      };
+      request.send();
+    }
+  </script>
+
+</body>
+
+</html>
