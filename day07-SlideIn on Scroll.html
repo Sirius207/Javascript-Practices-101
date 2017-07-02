@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .slide-in {
+      opacity: 0;
+      transition: all .5s;
+    }
+
+    .align-left.slide-in {
+      transform: translateX(-50%) scale(0.95)
+    }
+
+    .slide-in.active {
+      opacity: 1;
+      transform: translateX(0%) scale(1)
+    }
+  </style>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam
+    itaque quidem aspernatur. Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem
+    ipsum dolor sit amet, </p>
+  <img src="http://fakeimg.pl/250x100/" class="align-left slide-in">
+  <p>consectetur adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur.
+    Consequuntur praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur
+    adipisicing elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur
+    praesentium laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing
+    elit. Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium
+    laboriosam commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Adipisci obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+    obcaecati, aut minus dolorem non magnam voluptate ipsam itaque quidem aspernatur. Consequuntur praesentium laboriosam
+    commodi, odit repudiandae explicabo ipsum quia quos.</p>
+  <img src="http://fakeimg.pl/250x100/" class="align-left slide-in">
+  <script>
+    function debounce(func, wait = 10, immediate = true) {
+      let timeout
+      return function () {
+        const context = this,
+          args = arguments;
+        const later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args)
+        }
+        const callNow = immediate && !timeout
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(context, args)
+      }
+    }
+
+    const sliderImages = document.querySelectorAll('.slide-in')
+
+    function checkSlide(e) {
+
+      sliderImages.forEach(sliderImage => {
+
+        const slideInAt = (window.scrollY + window.innerHeight) -
+          sliderImage.height / 2
+        const imageBottom = sliderImage.offsetTop + sliderImage.height
+        const isHalfShown = slideInAt > sliderImage.offsetTop
+        const isNotScrolledPast = window.scrollY < imageBottom
+        if (isHalfShown && isNotScrolledPast) {
+          sliderImage.classList.add('active')
+        } else {
+          sliderImage.classList.remove('active')
+        }
+      })
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide, 50))
+  </script>
+</body>
+
+</html>
