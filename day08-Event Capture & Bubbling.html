@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    div {
+      width: 100%;
+      padding: 100px;
+    }
+
+    .one {
+      background-color: #011000;
+    }
+
+    .two {
+      background-color: orange;
+    }
+
+    .three {
+      background-color: crimson;
+    }
+  </style>
+  <div class="one">
+    <div class="two">
+      <div class="three"></div>
+    </div>
+  </div>
+  <button>Click</button>
+  <script>
+    const divs = document.querySelectorAll('div')
+
+    function logText(e) {
+      console.log(this.classList.value)
+      e.stopPropagation() // stop bubbling
+    }
+
+    divs.forEach(div => div.addEventListener('click', logText, {
+      capture: false,
+      once: true // listen once & unbind
+    }))
+
+    const button = document.querySelector('button')
+    button.addEventListener('click', () => {
+      console.log('click')
+    }, {
+      once: true
+    })
+  </script>
+</body>
+
+</html>
