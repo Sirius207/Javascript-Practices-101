@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      background: linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%)
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      max-width: 500px;
+      font-size: 20px;
+      line-height: 2;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .highlight {
+      transition: all .2s;
+      border-bottom: 2px solid #fff;
+      position: absolute;
+      top: 0;
+      background: #fff;
+      left: 0;
+      z-index: -1;
+      border-radius: 5px;
+      display: block;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    }
+
+    .menu {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      margin: 100px 0;
+    }
+
+    .menu a {
+      display: inline-block;
+      padding: 5px;
+      margin: 0 20px;
+      color: block;
+    }
+  </style>
+  <nav>
+    <ul class="menu">
+      <li><a href="">Home</a></li>
+      <li><a href="">Order</a></li>
+      <li><a href="">Tweets</a></li>
+      <li><a href="">Read Our History</a></li>
+      <li><a href="">Contact us</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, perferendis earum accusantium voluptatem ut, veritatis
+      ratione omnis aperiam amet beatae facere esse! Aliquam quo rem ullam placeat officiis similique, enim!</p>
+    <a href="" class="">Consector</a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime libero laboriosam in ipsum dolor facere molestias, beatae
+      molestiae eligendi culpa rem saepe, quibusdam voluptatibus nam velit nulla architecto! Voluptate, maiores.</p>
+  </div>
+  <script>
+    const triggers = document.querySelectorAll('a')
+    const highlight = document.createElement('span')
+    highlight.classList.add('highlight')
+    document.body.append(highlight)
+    function highlightLink() {
+      const linkCoords = this.getBoundingClientRect()
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      }
+      highlight.style.width = `${coords.width}px`
+      highlight.style.height = `${coords.height}px`
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`
+    }
+
+    triggers.forEach(a => a.addEventListener('mouseenter', highlightLink))
+  </script>
+</body>
+
+</html>
