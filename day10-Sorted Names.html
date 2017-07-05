@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(45deg, #fff, cyan);
+    }
+
+    .card {
+      width: 50%;
+      margin: 50px auto;
+      box-shadow: 0 3px 5px gray;
+      background: #fff;
+    }
+
+    ul li {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px;
+    }
+
+    .btn-sort {
+      cursor: pointer;
+      width: 50px;
+      height: 30px;
+      border-radius: 5px;
+      color: rgba(0, 0, 0, 0.8);
+      background: #fff;
+      box-shadow: 0 0 1px gray;
+      border: 0;
+      transition: .2s;
+      transition-timing-function: cubic-bezier(0.43, -0.64, 0.64, 2.03);
+    }
+
+    .btn-sort:hover {
+      background: rgba(58, 240, 40, 1);
+      color: #fff;
+      transform: scale(1.1);
+      transition: .2s;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+  <div class="card">
+    <ul id="bands"></ul>
+  </div>
+  <div class="center">
+    <button id="sort" class="btn-sort">Sort</button></div>
+  <script>
+    const bands = ['The Plot in you', 'The Devil wears Prada', 'Pierce the Veil', 'Norman Jean', 'The Bled',
+      'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylist Drive',
+      'Anywhere But Here'
+    ]
+
+    function strip(bandName) {
+      return bandName.replace(/^(a |the |an )/i, '').trim()
+    }
+
+    document.querySelector('#bands').innerHTML = bands.map(band => `<li>${band}</li>`).join('')
+
+    function sort() {
+      const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1)
+      document.querySelector('#bands').innerHTML =
+        sortedBands
+        .map(band => `<li>${band}</li>`)
+        .join('')
+    }
+
+    const sortBtn = document.querySelector('#sort')
+    sortBtn.addEventListener('click', sort)
+  </script>
+</body>
+
+</html>
