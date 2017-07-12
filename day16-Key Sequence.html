@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="http://www.cornify.com/js/cornify.js">
+  </script>
+  <script>
+    const press = []
+    const secret = "good"
+    window.addEventListener('keyup', (e) => {
+      press.push(e.key)
+      press.splice(-secret.length - 1, press.length - secret.length)
+      if (press.join('').includes(secret)) {
+        cornify_add()
+      }
+    })
+  </script>
+</body>
+
+</html>
