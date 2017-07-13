@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+     :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .h1 {
+      color: var(--base);
+    }
+    body {
+      text-align: center;
+      background: #193549;
+      font-weight: 100;
+      font-size: 50px;
+      color: #fff;
+     }
+    .controls {
+      margin-bottoms: 50px;
+    }
+    input {
+      width: 100px;
+    }
+
+  </style>
+  <h2>Update css variables with <span class="h1">JS </span></h2>
+  <div class="controls">
+    <label for="spacing">Spacing: </label>
+    <input type="range" name="spacing" value="10" min="10" max="200" data-sizing="px">
+
+    <label for="blur">Blur: </label>
+    <input type="range" name="blur" value="10" min="0" max="25" data-sizing="px">
+
+    <label for="base">Base: </label>
+    <input type="color" name="base" value="#ffc600" >
+
+  </div>
+  <img src="https://fakeimg.pl/440x320/282828/eae0d0/?retina=1" alt="">
+  <script>
+    const inputs = document.querySelectorAll('.controls input')
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || ''
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+    }
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
+  </script>
+
+</body>
+
+</html>
