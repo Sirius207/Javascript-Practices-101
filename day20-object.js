@@ -58,3 +58,31 @@ function foo(){
 }
 
 var foo = 1; 
+
+// --
+
+console.log(foo); // the same, function first
+
+var foo = 1;
+
+function foo(){
+    console.log("foo");
+}
+
+// --
+var foo = 1;
+console.log(foo); // 1, run foo = 1 in top down
+function foo(){
+console.log("foo");
+};
+
+// --
+console.log(foo); // function 
+var foo = 1;
+console.log(foo); // 1
+function foo(){};
+//--
+console.log(foo); // function
+function foo(){};
+console.log(foo); // function
+var foo = 1;
