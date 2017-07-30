@@ -1,3 +1,4 @@
+// from https://zhuanlan.zhihu.com/p/28140450
 
 var liList = document.querySelectorAll('li')
 for( let i=0; i<liList.length; i++){
