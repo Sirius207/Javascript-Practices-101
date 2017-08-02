@@ -5,6 +5,11 @@ export type TodoAddFormProps = {
   onItemAdd: (x: Item) => void,
 }
 
+export type TodoEditFormProps = {
+  title: string,
+  onItemUpdate: (x: string) => void,
+}
+
 export type TodoListProps = {
   children?: React$Element<*>,
 }
@@ -17,6 +22,7 @@ export type TodoItemProps = {
 
 export type Item = {
   id: number,
-  title: string, 
+  title: string,
   isCompleted: boolean,
+  isEditing: boolean,
 }

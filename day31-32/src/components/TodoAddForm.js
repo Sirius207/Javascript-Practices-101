@@ -12,6 +12,7 @@ const TodoAddForm = ({ placeholderText, onItemAdd }: TodoAddFormProps) => {
   return (
     <div>
       <input 
+        className="form-control"
         type="text"
         ref={el => { titleField = el }}
         placeholder={placeholderText}
