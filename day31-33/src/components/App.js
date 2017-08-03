@@ -38,6 +38,11 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // 元件"已經"載入，所以可以載入資料進來
+    this.handleServerItemsLoad()
+  }
+
   handleItemAdd = (aItem : Item) => {
     //加入新的項目到最前面 此處有變動
     const newItems = [
@@ -46,6 +51,8 @@ class App extends React.Component {
 
     //按下enter後，加到列表項目中並清空輸入框
     this.setState({items: newItems})
+    //加入新資料到資料庫
+    this.handleServerItemAdd(aItem)
   }
 
   //處理樣式變化其中一個陣列中成員的方法
@@ -58,6 +65,8 @@ class App extends React.Component {
 
     //整個陣列重新更新
     this.setState({items: newItems})
+    //更新某一筆資料
+    this.handleServerItemUpdate(newItems[index])
   }
 
   //處理其中一個陣列中成員變為編輯中的方法
@@ -122,9 +131,9 @@ class App extends React.Component {
       }
 
       this.setState({
-            items: newItems,
-            sortType
-        })
+        items: newItems,
+        sortType
+      })
   }
 
    //處理搜尋所有項目的方法
@@ -159,6 +168,88 @@ class App extends React.Component {
         items: newItems,
       })
     }
+  }
+
+  handleServerItemsLoad = () => {
+  fetch('http://localhost:5555/items?_sort=id&_order=DESC', {
+    method: 'GET'
+    })
+    .then((response) => {
+      //ok 代表狀態碼在範圍 200-299
+      if (!response.ok) throw new Error(response.statusText)
+      return response.json()
+    })
+    .then((itemList) => {
+
+       //加入{ isEditing: false }屬性
+       const items = itemList.map((item) => {
+         return Object.assign({}, item, { isEditing: false })
+       })
+
+      //載入資料，重新渲染
+      this.setState({
+        items,
+      })
+    })
+    .catch((error) => {
+      //這裡可以顯示一些訊息
+      console.error(error)
+    })
+  }
+
+  handleServerItemAdd = (aItem: Item) => {
+    //處理payload，不需要isEditing欄位
+    const { id, title, isCompleted } = aItem
+    const payload = { id, title, isCompleted }
+
+    //作POST
+    fetch('http://localhost:5555/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then((response) => {
+      //ok 代表狀態碼在範圍 200-299
+      if (!response.ok) throw new Error(response.statusText)
+      return response.json()
+    })
+    .then((item) => {
+      //這裡可以顯示一些訊息，或是結束指示動畫…
+      //console.log(item)
+    })
+    .catch((error) => {
+      //這裡可以顯示一些訊息
+      console.error(error)
+    })
+  }
+
+  handleServerItemUpdate = (aItem: Item) => {
+    //處理payload，不需要isEditing欄位
+    const { id, title, isCompleted } = aItem
+    const payload = { id, title, isCompleted }
+
+    //作POST
+    fetch(`http://localhost:5555/items/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then((response) => {
+      //ok 代表狀態碼在範圍 200-299
+      if (!response.ok) throw new Error(response.statusText)
+      return response.json()
+    })
+    .then((item) => {
+      //這裡可以顯示一些訊息，或是結束指示動畫…
+      //console.log(item)
+    })
+    .catch((error) => {
+      //console.error(error)
+    })
   }
 
   render() {
