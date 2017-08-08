@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import './App.css'
+import Form1 from './Form1'
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends Component {
         <h1>{this.state.headerText}</h1>
         <Content/>
         <Clock />
+        <Form1 />
       </div>
     )
   }
@@ -24,8 +26,13 @@ class Clock extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      date: new Date()
+      date: new Date(),
+      count: 0
     }
+    this.setNumber = this.setNumber.bind(this)
+  }
+  setNumber() {
+    this.setState({count: this.state.count + 1})
   }
   componentDidMount() {
     this.timeID = setInterval(() => {
@@ -42,6 +49,8 @@ class Clock extends Component {
     return (
       <div>
         <h2>The Time is: {this.state.date.toLocaleTimeString()}</h2>
+        <button onClick={this.setNumber}>Update</button>
+        <NumberComponent myNumber={this.state.count}/>
       </div>
     )
   }
@@ -126,6 +135,48 @@ class Content extends Component {
     )
   }
 }
+
+class NumberComponent extends Component {
+  componentWillMount () {
+    console.log('WillMount')
+  }
+
+  componentDidMount () {
+    console.log('DidMount')
+  }
+
+  componentWillReceiveProps (newProps) {
+    console.log('WillReceiveProps')
+  }
+
+  shouldComponentUpdate(newProps, newState) {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+
+  componentWillUpdate (newProps, newState) {
+    console.log('componentWillUpdate')
+  }
+
+  componentDidUpdate (newProps, newState) {
+    console.log('componentDidUpdate')
+  }
+
+  componentWillUnMount () {
+    console.log('WillUnMount')
+  }
+
+
+  render () {
+    return (
+      <div>
+        <h4>{this.props.myNumber}</h4>
+      </div>
+    )
+  }
+}
+
+
 
 Content.propTypes = {
   propArray: React.PropTypes.array.isRequired
