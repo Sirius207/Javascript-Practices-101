@@ -83,6 +83,34 @@ class Content extends Component {
     this.updateMyState = this.updateMyState.bind(this)
     this.updateNumber = this.updateNumber.bind(this)
   }
+  componentWillMount () {
+    console.log('WillMount')
+  }
+
+  componentDidMount () {
+    console.log('DidMount')
+  }
+
+  componentWillReceiveProps (newProps) {
+    console.log('WillReceiveProps')
+  }
+
+  shouldComponentUpdate(newProps, newState) {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+
+  componentWillUpdate (newProps, newState) {
+    console.log('componentWillUpdate')
+  }
+
+  componentDidUpdate (newProps, newState) {
+    console.log('componentDidUpdate')
+  }
+
+  componentWillUnMount () {
+    console.log('WillUnMount')
+  }
   updateMyState() {
     let count = this.state.count
     count++;
@@ -137,36 +165,6 @@ class Content extends Component {
 }
 
 class NumberComponent extends Component {
-  componentWillMount () {
-    console.log('WillMount')
-  }
-
-  componentDidMount () {
-    console.log('DidMount')
-  }
-
-  componentWillReceiveProps (newProps) {
-    console.log('WillReceiveProps')
-  }
-
-  shouldComponentUpdate(newProps, newState) {
-    console.log('shouldComponentUpdate')
-    return true
-  }
-
-  componentWillUpdate (newProps, newState) {
-    console.log('componentWillUpdate')
-  }
-
-  componentDidUpdate (newProps, newState) {
-    console.log('componentDidUpdate')
-  }
-
-  componentWillUnMount () {
-    console.log('WillUnMount')
-  }
-
-
   render () {
     return (
       <div>
