@@ -1,0 +1,104 @@
+{
+	"name": "Sample",
+	"email": "someone@awesome.me",
+	"phone": "123-546-7890",
+	"image": "http://fakeimg.pl/150x150/",
+	"website": "",
+	"twitter": "",
+	"twitterURL": "",
+	"experiences" : [
+		{
+			"title" : "Lead Developer",
+			"period": "2015 - Present",
+			"company": "Startup Hubs, San Francisco",
+			"companyURL": "",
+			"details": "Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo."
+		},
+		{
+			"title" : "Senior Software Engineer",
+			"period": "2014 - 2015",
+			"company": "Google, London",
+			"companyURL": "",
+			"details": "Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo."
+		}
+	],
+	"projects": [
+		{
+			"name":"Velocity",
+			"url": "",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"DevStudio",
+			"url": "",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Tempo",
+			"url": "",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Atom",
+			"url": "",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Delta",
+			"url": "",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		}
+	],
+	"skills": [
+		{
+			"name": "Python & Django",
+			"percent": "98%"
+		},
+		{
+			"name": "Javascript & jQuery",
+			"percent": "90%"
+		},
+		{
+			"name": "HTML5 & CSS",
+			"percent": "99%"
+		}
+	],
+	"education": [
+		{
+			"degree": "MSc in Computer Science",
+			"university": "University of London",
+			"period": "2011 - 2012"
+		},
+		{
+			"degree": "BSc in Applied Mathematics",
+			"university": "Bristol University",
+			"period": "2007 - 2011"
+		}
+	],
+	"languages": [
+		{
+			"name":"English",
+			"details": "Native"
+		},
+		{
+			"name":"French",
+			"details": "Professional"
+		},
+		{
+			"name":"Spanish",
+			"details": "Professional"
+		}
+	],
+	"interests": [
+		"Climbing",
+		"Snowboarding",
+		"Cooking",
+		"Coding"
+	]
+}
+
+
+
+
+
+
