@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
-
 import Home from './Home'
 import Submit from './Submit'
+
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+
 import createBrowserHistory from 'history/createBrowserHistory'
 
 const history = createBrowserHistory()
@@ -27,7 +27,7 @@ ReactDOM.render(
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Brand</a>
+          <a className="navbar-brand" href="/">Brand</a>
         </div>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
@@ -41,7 +41,6 @@ ReactDOM.render(
         </div>
       </div>
     </nav>
-    <hr/>
     <Route exact path='/' component={Home}/>
     <Route path='/submit' component={Submit} history={history}/>
   </div>
