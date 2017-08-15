@@ -14,10 +14,15 @@ class Home extends Component {
     let resultArray = []
     this.state.recipes.forEach((recipe, i) => {
       resultArray.push(
-        <div className='col-sm-4'>
-          {recipe.name} <br/>
-          {recipe.description} <br/>
-          <IngredientList recipe={recipe} />
+        <div className='col-md-4 col-sm-6'>
+          <div className='thumbnail'>
+            <img src={recipe.image} alt={recipe.name} />
+            <div className='caption'>
+              <h3>{recipe.name}</h3>
+              <p>{recipe.description}</p>
+              <IngredientList recipe={recipe} />
+            </div> 
+          </div>
         </div>
       )
     })
