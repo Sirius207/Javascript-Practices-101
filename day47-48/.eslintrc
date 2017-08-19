@@ -1,12 +1,12 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:react/recommended"],
   "rules": {
     "semi": ["error", "never"]
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": false,
+      "jsx": true,
       "experimentalObjectRestSpread": true
     }
   },
@@ -15,6 +15,7 @@
     "node": true
   },
   "plugins": [
-    "import"
+    "import",
+    "react"
   ]
 }
