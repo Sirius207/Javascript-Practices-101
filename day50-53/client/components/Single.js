@@ -5,7 +5,6 @@ import Comments from './Comments'
 const Single = React.createClass({
   render() {
     const { postId } = this.props.params
-    console.log(postId)
     const i = this.props.posts.findIndex((post) => post.code === postId)
 
     const post = this.props.posts[i]
