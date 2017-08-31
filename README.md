@@ -27,7 +27,7 @@ Main Resources: [#Javascript 30](https://javascript30.com)
 ###Topic: Core Javascript
 Resources: [Effective Javascript](https://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182), [Javascript 深入系列](https://github.com/mqyqingfeng/Blog/issues/17), 
 
-###Concepts
+###Concepts (In Progress)
 - Scope
 - Execution Context
 - Closures
@@ -57,7 +57,7 @@ Resources: [Learn Redux](https://learnredux.com/), [React - DOM界的彼方 系�
 
 
 ##Day 54 ~ 60
-###Topic: GraphQL
+###Topic: GraphQL Client
 Resouces
 
 - [How to GraphQL](https://www.howtographql.com/), 
@@ -72,3 +72,6 @@ Resouces
 	- Filtering/voting
 	- Authentication
 	- Routing
+
+
+##Day 61 ~ 
