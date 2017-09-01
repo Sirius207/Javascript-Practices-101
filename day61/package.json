@@ -1,0 +1,19 @@
+{
+  "name": "day61",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^1.1.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "graphql": "^0.11.2",
+    "graphql-tools": "^1.2.2",
+    "mongodb": "^2.2.31"
+  }
+}

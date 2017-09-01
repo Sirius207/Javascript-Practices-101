@@ -2,7 +2,7 @@
 
 A 101-Day Learning Challenge of Javascript
 
-##Day 1 ~ 17
+## Day 1 ~ 17
 ###Topic: Basic Javascript
 Main Resources: [#Javascript 30](https://javascript30.com)
 
