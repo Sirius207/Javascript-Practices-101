@@ -3,7 +3,7 @@
 A 101-Day Learning Challenge of Javascript
 
 ## Day 1 ~ 17
-###Topic: Basic Javascript
+### Topic: Basic Javascript
 Main Resources: [#Javascript 30](https://javascript30.com)
 
 ### Concepts:
@@ -12,7 +12,7 @@ Main Resources: [#Javascript 30](https://javascript30.com)
 - Passed by Value & Passed by Reference
 
 ### Practices
-- [Modulo Multiplication Circle](https://codepen.io/Sirius207/pen/GEyZKO)
+- [Modulo Multiplication Circle (canvas)](https://codepen.io/Sirius207/pen/GEyZKO)
 - [Solar Eclipse Clock](https://codepen.io/Sirius207/pen/gRGBRq)
 - [Floating Text](https://codepen.io/Sirius207/pen/zzRXxW)
 - [SlideIn on Scroll](https://codepen.io/Sirius207/pen/mwxjmK)
@@ -70,7 +70,7 @@ Resouces
 
 
 ### Practices
-- React Hacker News 
+- React Hacker News (Client)
 	- Graphcool backend
 	- Realtime Updates
 	- Filtering/voting
