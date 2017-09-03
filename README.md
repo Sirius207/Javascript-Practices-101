@@ -35,7 +35,7 @@ Resources: [Effective Javascript](https://www.amazon.com/Effective-JavaScript-Sp
 - This
 - Arguments
 - Call, Apply & Bind
-- Variables lifecycle: [Ref](https://rainsoft.io/variables-lifecycle-and-why-let-is-not-hoisted/)
+- Variables Lifecycle: [Ref](https://rainsoft.io/variables-lifecycle-and-why-let-is-not-hoisted/)
 - Event Loop & Asynchronous
 
 
@@ -59,9 +59,10 @@ Resources: [Learn Redux](https://learnredux.com/), [React - DOM界的彼方 系�
 - Blog Application with Redux & store/comment feature
 
 
-## Day 54 ~ 60
+## Day 54 ~ 
 
-### Topic: GraphQL Client
+### Topic: GraphQL
+
 Resouces
 
 - [How to GraphQL](https://www.howtographql.com/), 
@@ -70,12 +71,13 @@ Resouces
 
 
 ### Practices
-- React Hacker News (Client)
+- React Hacker News (Client) (React & Apollo)
 	- Graphcool backend
 	- Realtime Updates
 	- Filtering/voting
 	- Authentication
 	- Routing
+- React Hacker News (Server) (GraphQl.js)
 
 
-## Day 61 ~ 
+
