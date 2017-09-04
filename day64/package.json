@@ -1,0 +1,16 @@
+{
+  "name": "day64",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dataloader": "^1.3.0",
+    "graphql": "^0.11.2",
+    "relay-local-schema": "^0.6.2"
+  }
+}
