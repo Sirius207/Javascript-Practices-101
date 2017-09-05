@@ -59,7 +59,7 @@ Resources: [Learn Redux](https://learnredux.com/), [React - DOM界的彼方 系�
 - Blog Application with Redux & store/comment feature
 
 
-## Day 54 ~ 
+## Day 54 ~ 64
 
 ### Topic: GraphQL
 
@@ -68,7 +68,7 @@ Resouces
 - [How to GraphQL](https://www.howtographql.com/), 
 - [Creating a structured, hot-reloadable GraphQL API with Express.js, Apollo Server and Webpack: Part 1](https://hackernoon.com/creating-a-structured-hot-reloadable-graphql-api-with-express-js-de62c859643) 
 - [REST 2.0 Is Here and Its Name Is GraphQL](https://www.sitepoint.com/rest-2-0-graphql/)
-
+- [Wrapping a REST API in GraphQL](http://graphql.org/blog/rest-api-graphql-wrapper/)
 
 ### Practices
 - React Hacker News (Client) (React & Apollo)
@@ -78,6 +78,11 @@ Resouces
 	- Authentication
 	- Routing
 - React Hacker News (Server) (GraphQl.js)
+- Client-side REST wrapper
 
+## Day 65 ~
 
+### Topic: Webpack3
 
+Resouces
+- [16個Webpack小例子](https://juejin.im/post/58edcbda44d904005774cfb1)
