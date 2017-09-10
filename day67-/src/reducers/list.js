@@ -17,10 +17,10 @@ function postLists (state = [], action) {
 }
 
 function lists (state = [], action) {
-  if (typeof action.postId !== 'undefined') {
+  if (typeof action.listId !== 'undefined') {
     return {
       ...state,
-      [action.postId]: postLists(state[action.postId], action)
+      [action.listId]: postLists(state[action.listId], action)
     }
   }
   return state
