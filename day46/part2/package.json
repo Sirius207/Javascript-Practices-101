@@ -13,7 +13,9 @@
   "description": "A startkit for client-side development in ES6.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js --progress --inline --colors --open",
-    "build": "webpack --config webpack-production.config.js --progress --colors"
+    "build": "webpack --config webpack-production.config.js --progress --colors",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -31,8 +33,10 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "redux": "^3.7.2"
-  }
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "redux": "^3.7.2",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
